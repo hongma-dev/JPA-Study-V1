@@ -1,4 +1,4 @@
-package com.example.demo.ex2.domain;
+package com.example.demo.ex3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,21 +12,21 @@ import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+//@Entity
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Member {
+@ToString
+public class Team {
 
 	@Id @GeneratedValue
-	@Column(name="member_id")
-	private Long id;
+	@Column(name="TEAM_ID")
+	private Long teamId;
 	private String name;
-	private String city;
-	private String street;
-	private String zipcode;
 	
-	@OneToMany(mappedBy="member")
-	private List<Orders> orders = new ArrayList<>();
+	@OneToMany(mappedBy="team")
+	private List<Member> members = new ArrayList<Member>();
+	
 }

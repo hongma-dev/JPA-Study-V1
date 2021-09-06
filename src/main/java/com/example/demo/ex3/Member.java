@@ -1,4 +1,4 @@
-package com.example.demo.ex2.domain;
+package com.example.demo.ex3;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,31 +11,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//@Entity
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderItem {
-	
+public class Member {
+
 	@Id @GeneratedValue
-	@Column(name="ORDER_ITEM_ID")
+	@Column(name="MEMBER_ID")
 	private Long id;
 	
-//	@Column(name="ORDER_ID")
-//	private Long orderId;
+	@Column(name="USER_NAME")
+	private String username;
 	
 	@ManyToOne
-	@JoinColumn(name="ORDER_ID")
-	private Orders orders;
+	@JoinColumn(name="TEAM_ID")
+	private Team team;
 	
-//	@Column(name="ITEM_ID")
-//	private Long itemId;
-	
-	@ManyToOne
-	@JoinColumn(name="ITEM_ID")
-	private Item item;
-	
-	private int orderPrice;
-	private int count;
 	
 }
