@@ -1,0 +1,6 @@
+package com.example.demo.ex3;
+
+public enum DeliveryStatus {
+
+	WAIT,DONE
+}

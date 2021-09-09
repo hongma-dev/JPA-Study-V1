@@ -1,11 +1,15 @@
 package com.example.demo.ex3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,5 +32,10 @@ public class Member {
 	@JoinColumn(name="TEAM_ID")
 	private Team team;
 	
+	@OneToOne
+	@JoinColumn(name="LOCKER_ID")
+	private Locker locker;
 	
+	@OneToMany(mappedBy="member")
+	private List<MemberProduct> memberProducts = new ArrayList<>();
 }
