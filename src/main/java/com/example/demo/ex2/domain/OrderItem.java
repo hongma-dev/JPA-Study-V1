@@ -2,6 +2,7 @@ package com.example.demo.ex2.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -24,7 +25,7 @@ public class OrderItem {
 //	@Column(name="ORDER_ID")
 //	private Long orderId;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ORDER_ID")
 	private Orders orders;
 	
